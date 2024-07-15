@@ -7,7 +7,9 @@ class WandxincLogin {
   /// {@macro wandxinc_login}
   WandxincLogin._();
 
+  /// Singleton instance
   static final WandxincLogin instance = WandxincLogin._();
 
+  /// Login contract
   late LoginContract loginRepo;
 }

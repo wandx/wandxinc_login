@@ -1,23 +1,31 @@
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:wandxinc_login/src/domain/use_cases/fetch_token.dart';
-import 'package:wandxinc_login/src/service/auth_service.dart';
+import 'package:wandxinc_login/src/service/login_service.dart';
 
 part 'login_state.dart';
 
+/// LoginCubit
 class LoginCubit extends Cubit<LoginState> {
+  /// LoginCubit init
   LoginCubit() : super(const LoginState());
 
+  /// Form Key
   final fk = GlobalKey<FormState>();
+
+  /// Username
   final username = TextEditingController();
+
+  /// Password
   final password = TextEditingController();
 
+  /// Get token
   Future<void> token() async {
     if (!fk.currentState!.validate()) {
       return;
     }
     emit(const LoginState(loading: true));
-    await AuthService.instance
+    await LoginService.instance
         .fetchToken(
           FetchTokenParam(
             username: username.text,
