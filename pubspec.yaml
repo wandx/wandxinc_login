@@ -1,6 +1,6 @@
 name: wandxinc_login
 description: A Very Good Project created by Very Good CLI.
-version: 0.2.1+1
+version: 0.3.0+1
 publish_to: none
 
 environment:
@@ -16,7 +16,7 @@ dependencies:
   wandxinc_core:
     git:
       url: https://github.com/wandx/wandxinc_core
-      ref: v2.4.3
+      ref: v3.4.1
 
 dev_dependencies:
   flutter_test:

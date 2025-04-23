@@ -1,4 +1,5 @@
 import 'package:bloc/bloc.dart';
+import 'package:dartz/dartz.dart';
 import 'package:flutter/material.dart';
 import 'package:wandxinc_login/src/domain/use_cases/fetch_token.dart';
 import 'package:wandxinc_login/src/service/login_service.dart';
@@ -34,8 +35,8 @@ class LoginCubit extends Cubit<LoginState> {
         )
         .then(
           (res) => res.fold(
-            (l) => emit(LoginState(errorMessage: l.message)),
-            (r) => emit(LoginState(token: r)),
+            (l) => emit(LoginState(errorMessage: some(l.message))),
+            (r) => emit(LoginState(token: some(r), errorMessage: some(''))),
           ),
         );
   }

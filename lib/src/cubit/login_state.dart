@@ -6,16 +6,16 @@ class LoginState {
   /// LoginState
   const LoginState({
     this.loading = false,
-    this.token,
-    this.errorMessage,
+    this.token = const None(),
+    this.errorMessage = const None(),
   });
 
   /// loading state
   final bool loading;
 
   /// token
-  final String? token;
+  final Option<String> token;
 
   /// errorMessage
-  final String? errorMessage;
+  final Option<String> errorMessage;
 }
